@@ -56,3 +56,6 @@ make
   --commandline "console=hvc0 root=/dev/vda1" \
   --image ubuntu-20.04.3-live-server-arm64.iso
 ```
+
+If you're using Intel Mac, you can use Ubuntu Desktop iso image and follow same steps as above for Apple Silicon Mac.
+It is not necessary to run `gzip -d` to ungzip `vmlinuz` but you can use that bzImage file directly for `--vmlinux` argument.
