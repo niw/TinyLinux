@@ -313,8 +313,8 @@
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/apple/swift-argument-parser";
 			requirement = {
-				kind = upToNextMinorVersion;
-				minimumVersion = 0.3.2;
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.3;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
