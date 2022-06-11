@@ -59,25 +59,3 @@ make
 
 If you're using Intel Mac, you can use Ubuntu Desktop iso image and follow same steps as above for Apple Silicon Mac.
 It is not necessary to run `gzip -d` to ungzip `vmlinuz` but you can use that bzImage file directly for `--vmlinux` argument.
-
-### Serial device
-
-TinyLinux connects standard input and output to the serial device.
-To make it works on the terminal emulator, you may need to disable the line discipline used for the current terminal emulator
-by using `stty raw` prior to use TinyLinux and restore state after using it.
-
-For example, make a following shell script and use it instead.
-
-```sh
-#!/bin/sh
-# Save current state
-save_state=$(stty -g)
-# Make it raw
-stty raw
-# Boot Linux
-.build/TinyLinux.xcarchive/Products/usr/local/bin/TinyLinux ...
-# Restore original state
-stty "$save_state"
-```
-
-See `stty(3)` as well.

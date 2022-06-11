@@ -36,10 +36,19 @@ struct Command: ParsableCommand {
         }
         bootLoader.commandLine = commandline
 
+        let standardInput = FileHandle.standardInput
+        var attributes = termios()
+        tcgetattr(standardInput.fileDescriptor, &attributes)
+        attributes.c_iflag &= ~tcflag_t(ICRNL)
+        attributes.c_lflag &= ~tcflag_t(ICANON | ECHO)
+        tcsetattr(standardInput.fileDescriptor, TCSANOW, &attributes)
+
+        let standardOutput = FileHandle.standardOutput
+
         let serialPort = VZVirtioConsoleDeviceSerialPortConfiguration()
         serialPort.attachment = VZFileHandleSerialPortAttachment(
-            fileHandleForReading: FileHandle.standardInput,
-            fileHandleForWriting: FileHandle.standardOutput
+            fileHandleForReading: standardInput,
+            fileHandleForWriting: standardOutput
         )
 
         let entropyDevice = VZVirtioEntropyDeviceConfiguration()
