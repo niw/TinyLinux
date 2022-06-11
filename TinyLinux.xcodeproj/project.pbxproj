@@ -24,6 +24,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		54347EE1285558F400169485 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		54DE075725B2CD56008AA3BF /* TinyLinux */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = TinyLinux; sourceTree = BUILT_PRODUCTS_DIR; };
 		54DE076225B2CD98008AA3BF /* Command.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Command.swift; sourceTree = "<group>"; };
 		54DE076325B2CD98008AA3BF /* TinyLinux.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.entitlements; path = TinyLinux.entitlements; sourceTree = "<group>"; };
@@ -44,6 +45,7 @@
 		54DE074E25B2CD56008AA3BF = {
 			isa = PBXGroup;
 			children = (
+				54347EE1285558F400169485 /* README.md */,
 				54DE075925B2CD56008AA3BF /* TinyLinux */,
 				54DE075825B2CD56008AA3BF /* Products */,
 			);
