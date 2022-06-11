@@ -24,7 +24,7 @@ struct Command: ParsableCommand {
     var cpuCount: Int = 1
 
     @Option(help: "memory size in megabyte")
-    var memorySize: Int = 512
+    var memorySize: Int = 4 * 1024
 
     @Option(help: "path to disk image")
     var image: [String] = []
