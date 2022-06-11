@@ -44,6 +44,16 @@ hdiutil detach disk4 # Same here.
 rm -rf ubuntu
 ```
 
+Create a blank disk image, use following command.
+Use [HolePunch](https://github.com/niw/HolePunch) to shrink actual disk usage, if it's preferred.
+
+```sh
+# Create a blank disk image.
+dd if=/dev/zero of=disk.img bs=1g count=20
+# Shrink actual disk usage (Optional.)
+holepunch -p disk.img
+```
+
 Build TinyLinux then boot.
 
 ```sh
@@ -54,7 +64,8 @@ make
   --vmlinux vmlinux \
   --initrd initrd \
   --commandline "console=hvc0 root=/dev/vda1" \
-  --image ubuntu-20.04.3-live-server-arm64.iso
+  --image ubuntu-20.04.3-live-server-arm64.iso \
+  --image disk.img
 ```
 
 If you're using Intel Mac, you can use Ubuntu Desktop iso image and follow same steps as above for Apple Silicon Mac.

@@ -46,7 +46,14 @@ struct Command: ParsableCommand {
         let memoryBalloonDevice = VZVirtioTraditionalMemoryBalloonDeviceConfiguration()
 
         let storageDevices = try image.map { image -> VZVirtioBlockDeviceConfiguration in
-            let attachment = try VZDiskImageStorageDeviceAttachment(url: URL(fileURLWithPath: image), readOnly: true)
+            let readOnly: Bool
+            switch (image as NSString).pathExtension.lowercased() {
+            case "iso":
+                readOnly = true
+            default:
+                readOnly = false
+            }
+            let attachment = try VZDiskImageStorageDeviceAttachment(url: URL(fileURLWithPath: image), readOnly: readOnly)
             return VZVirtioBlockDeviceConfiguration(attachment: attachment)
         }
 
